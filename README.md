@@ -1,5 +1,15 @@
-# Last Mile Delivery — Mini Hackathon Submission
-**Dataset:** `last_mile_delivery_dataset.csv` — 2,080 orders · 20 columns · 10 Indian cities · Full year 2024
+# Last Mile Delivery – MiniHackathon Analysis
+**Name:** Mrityunjay Mishra  
+**College:** Madan Mohan Malaviya University of Technology, Gorakhpur  
+**Branch:** B.Tech CSE – 2nd Year  
+**Event:**  MiniHackathon  
+
+---
+
+## Dataset Overview
+- 2,080 rows × 20 columns
+- One full year of delivery orders across 10 Indian cities
+- Columns include: city, order_time, weather_condition, vehicle_type, delay_mins, rider_experience_yrs etc.
 ---
 ##  File Structure
 ```
