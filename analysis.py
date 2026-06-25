@@ -16,15 +16,11 @@ from scipy import stats
 import warnings
 warnings.filterwarnings('ignore')
 
-# ─────────────────────────────────────────────
 # 0. LOAD
-# ─────────────────────────────────────────────
 df = pd.read_csv('last_mile_delivery_dataset.csv')
 print(f"Loaded: {df.shape[0]} rows × {df.shape[1]} cols")
 
-# ─────────────────────────────────────────────
 # 1. CLEANING
-# ─────────────────────────────────────────────
 print("\n── Data Cleaning ──────────────────────────")
 
 # Normalise vehicle_type casing  (Bike / bike / BIKE → Bike)
@@ -55,16 +51,12 @@ print(f"  Cities clean     : {df['city'].nunique()} unique → {sorted(df['city'
 print(f"  Vehicle types    : {sorted(df['vehicle_type'].unique())}")
 print(f"  Nulls remaining  :\n{df.isnull().sum()[df.isnull().sum()>0]}")
 
-
-# ─────────────────────────────────────────────
 # Q1 — PEAK HOUR DELAY PATTERN
-# ─────────────────────────────────────────────
 print("\n── Q1: Peak Hour Delay ────────────────────")
 
 df['peak'] = df['hour'].apply(
     lambda h: 'Peak' if (8 <= h <= 10 or 17 <= h <= 20) else 'Off-Peak'
 )
-
 peak   = df[df['peak'] == 'Peak']['delay_mins']
 offpk  = df[df['peak'] == 'Off-Peak']['delay_mins']
 
@@ -75,10 +67,7 @@ print(f"  Difference  (mean) : {peak.mean() - offpk.mean():.2f} min  ({((peak.me
 u_stat, p_val = stats.mannwhitneyu(peak, offpk, alternative='greater')
 print(f"  Mann-Whitney U={u_stat:.0f},  p={p_val:.4e}  → {'SIGNIFICANT ✓' if p_val < 0.05 else 'NOT significant'}")
 
-
-# ─────────────────────────────────────────────
 # Q2 — WEATHER vs DELAY EDA
-# ─────────────────────────────────────────────
 print("\n── Q2: Weather vs Delay ───────────────────")
 
 wx = df[df['weather_condition'].isin(['Clear', 'Rain', 'Fog'])]
@@ -91,10 +80,8 @@ print(f"\n  Order type hardest hit by rain (median delay):")
 print(worst_ot.to_string())
 print(f"\n  → Hardest hit: {worst_ot.idxmax()} ({worst_ot.max():.1f} min median delay)")
 
-
-# ─────────────────────────────────────────────
 # Q3 — RIDER EXPERIENCE EFFECT (statistics)
-# ─────────────────────────────────────────────
+
 print("\n── Q3: Rider Experience Effect ────────────")
 
 junior = df[df['rider_experience_yrs'] < 2]['delay_mins']
@@ -109,10 +96,7 @@ print(f"\n  Mann-Whitney U={u2:.0f},  p={p2:.4f}")
 print(f"  Cohen's d = {cohen_d:.3f}  (|d|<0.2 → negligible effect size)")
 print(f"  Conclusion: {'Significant' if p2 < 0.05 else 'No significant'} difference in delays by experience band.")
 
-
-# ─────────────────────────────────────────────
 # Q4 — DASHBOARD DATA
-# ─────────────────────────────────────────────
 print("\n── Q4: City-Level Performance ─────────────")
 
 city_ontime = (
@@ -132,4 +116,4 @@ veh_perf = df.groupby('vehicle_type')['delay_mins'].agg(['mean','median','count'
 print("\n  Vehicle type performance:")
 print(veh_perf.to_string())
 
-print("\n✅ Analysis complete — see PNG files for charts.")
+print("\n Analysis complete — see PNG files for charts.")
