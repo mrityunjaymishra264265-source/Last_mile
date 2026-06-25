@@ -1,10 +1,10 @@
-# 🚚 Last Mile Delivery — Mini Hackathon Submission
+# Last Mile Delivery — Mini Hackathon Submission
 
 **Dataset:** `last_mile_delivery_dataset.csv` — 2,080 orders · 20 columns · 10 Indian cities · Full year 2024
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 hackathon/
@@ -19,7 +19,7 @@ hackathon/
 
 ---
 
-## 🧹 Step 1 — Data Cleaning (After Cleaning)
+##  Step 1 — Data Cleaning (After Cleaning)
 
 | Issue | Fix Applied |
 |-------|------------|
@@ -75,7 +75,7 @@ Fog is the worst weather condition — **6.2× worse than clear skies**.
 
 | Order Type | Median Delay in Rain |
 |------------|---------------------|
-| **Medicine** | **34.65 min** ⚠️ |
+| **Medicine** | **34.65 min**  |
 | Documents | 29.80 min |
 | Food | 29.20 min |
 | Grocery | 29.05 min |
@@ -115,7 +115,7 @@ Experience alone does not predict delivery delay in this dataset. Other factors 
 
 | City | On-Time % |
 |------|----------|
-| **Hyderabad** | **51.6%** ✅ Best |
+| **Hyderabad** | **51.6%** Best |
 | Jaipur | 38.7% |
 | Mumbai | 38.4% |
 | Pune | 36.3% |
@@ -124,7 +124,7 @@ Experience alone does not predict delivery delay in this dataset. Other factors 
 | Lucknow | 34.8% |
 | Ahmedabad | 34.7% |
 | Delhi | 34.3% |
-| **Bangalore** | **31.1%** ❌ Worst |
+| **Bangalore** | **31.1%** Worst |
 
 ### Panel 2 — Monthly Delay Trend
 - Highest delays: **December (15.83 min)**, October (15.52 min), July (15.29 min)
@@ -144,7 +144,7 @@ Experience alone does not predict delivery delay in this dataset. Other factors 
 
 ---
 
-## 📌 Final Insights & Observations
+##  Final Insights & Observations
 
 | # | Finding | Action |
 |---|---------|--------|
